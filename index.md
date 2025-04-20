@@ -1,3 +1,8 @@
+---
+layout: default
+title: ArXiv Summary Daily
+---
+
 # Arxiv论文总结报告
 
 ## 基本信息
