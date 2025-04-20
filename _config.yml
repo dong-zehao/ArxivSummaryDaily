@@ -1,2 +1,34 @@
-theme: jekyll-theme-cayman
+# 使用remote_theme引用Whitey主题
+remote_theme: vincentdoerig/whitey
+
+# 原有设置
 title: ArXiv Summary Daily
+description: "每日自动检索和总结arXiv论文的工具，使用AI生成论文摘要"
+author: dong-zehao
+keywords: arXiv, 论文摘要, AI总结, 科研工具
+
+# 启用MathJax以支持LaTeX公式渲染
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+  
+# MathJax配置 - 与_includes/mathjax.html保持一致
+mathjax:
+  enable: true
+  combine_defs: false
+  process_escapes: true
+  tags: 'ams'
+  elements:
+    - '$'      # 内联公式开始/结束标记
+    - '$$'     # 块级公式开始/结束标记
+    - '\('     # 内联公式开始标记
+    - '\)'     # 内联公式结束标记
+    - '\['     # 块级公式开始标记
+    - '\]'     # 块级公式结束标记
+
+# GitHub Pages默认插件
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-remote-theme  # 添加remote-theme插件支持
