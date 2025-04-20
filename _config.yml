@@ -1,5 +1,5 @@
 # 使用remote_theme引用Whitey主题
-remote_theme: vincentdoerig/whitey
+theme: jekyll-theme-cayman
 
 # 原有设置
 title: ArXiv Summary Daily
@@ -31,4 +31,3 @@ mathjax:
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-remote-theme  # 添加remote-theme插件支持
