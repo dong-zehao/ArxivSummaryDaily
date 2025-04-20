@@ -1,25 +1,5 @@
 # 使用GitHub Pages默认主题 - Cayman
 theme: jekyll-theme-cayman
 title: ArXiv Summary Daily
-description: "每日自动检索和总结arXiv论文的工具，使用AI生成论文摘要"
+description: "每日自动检索和总结arXiv论文的工具，使用AI生成论文摘要。本页面的搜索领域固定为凝聚态超导-强关联-材料物理三个领域。"
 author: dong-zehao
-
-# 启用MathJax以支持LaTeX公式渲染
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
-  
-# MathJax配置 - 与_includes/mathjax.html保持一致
-mathjax:
-  enable: true
-  combine_defs: false
-  process_escapes: true
-  tags: 'ams'
-  elements:
-    - '$'      # 内联公式开始/结束标记
-    - '$$'     # 块级公式开始/结束标记
-    - '\('     # 内联公式开始标记
-    - '\)'     # 内联公式结束标记
-    - '\['     # 块级公式开始标记
-    - '\]'     # 块级公式结束标记
