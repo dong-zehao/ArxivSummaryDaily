@@ -1,11 +1,8 @@
-# 使用remote_theme引用Whitey主题
+# 使用GitHub Pages默认主题 - Cayman
 theme: jekyll-theme-cayman
-
-# 原有设置
 title: ArXiv Summary Daily
 description: "每日自动检索和总结arXiv论文的工具，使用AI生成论文摘要"
 author: dong-zehao
-keywords: arXiv, 论文摘要, AI总结, 科研工具
 
 # 启用MathJax以支持LaTeX公式渲染
 markdown: kramdown
@@ -26,8 +23,3 @@ mathjax:
     - '\)'     # 内联公式结束标记
     - '\['     # 块级公式开始标记
     - '\]'     # 块级公式结束标记
-
-# GitHub Pages默认插件
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
