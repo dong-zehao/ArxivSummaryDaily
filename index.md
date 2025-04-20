@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Arxiv论文总结报告
+mathjax: true
 ---
 
 [查看所有摘要归档](archive.md) | 更新日期: 2025-04-20
