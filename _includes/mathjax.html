@@ -1,17 +1,24 @@
-<!-- MathJax配置，支持LaTeX公式渲染 -->
-<script type="text/javascript">
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  };
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']], // 定义行内公式的分隔符
+        displayMath: [['$$', '$$'], ['\\[', '\\]']], // 定义块级公式的分隔符
+        processEscapes: true, // 处理 \$, \\ 等转义
+        processEnvironments: true // 处理 LaTeX 环境，如 begin/end
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // 避免在这些标签内处理数学公式
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+  {{ content }}
+</body>
+</html>

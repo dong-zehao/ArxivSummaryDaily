@@ -1,7 +1,6 @@
 ---
-layout: default
+include: mathjax
 title: ArXiv Summary 归档
-mathjax: true
 ---
 
 [返回首页](index.md)
