@@ -1,5 +1,5 @@
 ---
-include: mathjax
+layout: default
 title: ArXiv Summary 归档
 ---
 

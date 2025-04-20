@@ -1,5 +1,5 @@
 ---
-include: mathjax
+layout: default
 title: Arxiv论文总结报告
 ---
 
