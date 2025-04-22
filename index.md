@@ -23,16 +23,16 @@ title: Arxiv论文总结报告
 
 ---
 
-#### [The preparation and properties of polycrystalline Bi$_2$O$_2$Se -- pitfalls and difficulties with reproducibility and charge transport limiting parameters](http://arxiv.org/abs/2504.15227v1)
+#### [The preparation and properties of polycrystalline Bi$\_2$O$\_2$Se -- pitfalls and difficulties with reproducibility and charge transport limiting parameters](http://arxiv.org/abs/2504.15227v1)
 - **作者:** Jan Zich, Tomáš Plecháček, Antonín Sojka, Petr Levinský, Jiří Navrátil, Pavlína Ruleová, Stanislav Šlang, Karel Knížek, Jiří Hejtmánek, Vojtěch Nečina, Čestmír Drašar
-- **研究目的:** 研究多晶 $\text{Bi}_2\text{O}_2\text{Se}$ 制备中的重现性问题，并开发一种改进重现性和稳定性的制备方法。
-- **主要发现:** 开发了一种新的制备方法，显著提高了未掺杂多晶 $\text{Bi}_2\text{O}_2\text{Se}$ 的重现性和热循环稳定性，并获得了适合作为掺杂研究参考材料的电输运性能。
+- **研究目的:** 研究多晶 $\text{Bi}\_2\text{O}\_2\text{Se}$ 制备中的重现性问题，并开发一种改进重现性和稳定性的制备方法。
+- **主要发现:** 开发了一种新的制备方法，显著提高了未掺杂多晶 $\text{Bi}\_2\text{O}\_2\text{Se}$ 的重现性和热循环稳定性，并获得了适合作为掺杂研究参考材料的电输运性能。
 
 ---
 
 #### [Spin dynamics and 1/3 magnetization plateau in a coupled distorted diamond chain compound K2Cu3(MoO4)4](http://arxiv.org/abs/2504.15216v1)
 - **作者:** G. Senthil Murugan, J. Khatua, Suyoung Kim, Eundeok Mun, K. Ramesh Babu, Heung-Sik Kim, C. -L. Huang, R. Kalaivanan, U. Rajesh Kumar, I. Panneer Muthuselvam, W. T. Chen, Sritharan Krishnamoorthi, K. -Y. Choi, R. Sankar
-- **研究目的:** 通过实验和理论计算研究化合物 $\text{K}_2\text{Cu}_3(\text{MoO}_4)_4$ 的磁性质和自旋动力学。
+- **研究目的:** 通过实验和理论计算研究化合物 $\text{K}\_2\text{Cu}\_3(\text{MoO}\_4)\_4$ 的磁性质和自旋动力学。
 - **主要发现:** 发现了该化合物在 $2.3 \text{ K}$ 发生反铁磁有序，并在磁场中展现出 $1/3$ 磁化平台，其自旋模型可描述为具有竞争相互作用的扭曲金刚石链。
 
 ---
@@ -58,9 +58,9 @@ title: Arxiv论文总结报告
 
 ---
 
-#### [The phase diagram of CeRh$_{2}$As$_{2}$ for out-of-plane magnetic field](http://arxiv.org/abs/2504.15112v1)
+#### [The phase diagram of CeRh$\_{2}$As$\_{2}$ for out-of-plane magnetic field](http://arxiv.org/abs/2504.15112v1)
 - **作者:** P. Khanenko, J. F. Landaeta, S. Ruet, T. Lühmann, K. Semeniuk, M. Pelly, A. W. Rost, G. Chajewski, D. Kaczorowski, C. Geibel, S. Khim, E. Hassinger, M. Brando
-- **研究目的:** 通过磁致伸缩和交流磁化率测量，研究重费米子超导体 $\text{CeRh}_2\text{As}_2$ 在面外磁场下的相图。
+- **研究目的:** 通过磁致伸缩和交流磁化率测量，研究重费米子超导体 $\text{CeRh}\_2\text{As}\_2$ 在面外磁场下的相图。
 - **主要发现:** 实验证据证实了相 I 存在于超导相 SC2 内部，支持了四临界点和相 I 与超导共存的预测，并发现 $T^{*}(H)$ 相界线具有正斜率。
 
 ---
@@ -79,10 +79,10 @@ title: Arxiv论文总结报告
 
 ---
 
-#### [The compliance of the molecular hydride superconductor $BiH_4$ with the Migdal's theorem](http://arxiv.org/abs/2504.15004v1)
+#### [The compliance of the molecular hydride superconductor $BiH\_4$ with the Migdal's theorem](http://arxiv.org/abs/2504.15004v1)
 - **作者:** E. F. Talantsev, Yu. V. Blinova, A. V. Korolev
-- **研究目的:** 分析分子氢化物超导体 $\text{BaH}_{12}$ 和 $\text{BiH}_4$ 的实验数据，并评估 $\text{BiH}_4$ 是否符合米格达尔定理。
-- **主要发现:** $\text{BiH}_4$ 的德拜温度与费米温度之比 $\Theta_D / T_F = 0.026$ 与纯金属和 A-15 合金相似，表明 $\text{BiH}_4$ 是第一个符合米格达尔定理的氢化物超导体。
+- **研究目的:** 分析分子氢化物超导体 $\text{BaH}\_{12}$ 和 $\text{BiH}\_4$ 的实验数据，并评估 $\text{BiH}\_4$ 是否符合米格达尔定理。
+- **主要发现:** $\text{BiH}\_4$ 的德拜温度与费米温度之比 $\Theta\_D / T\_F = 0.026$ 与纯金属和 A-15 合金相似，表明 $\text{BiH}\_4$ 是第一个符合米格达尔定理的氢化物超导体。
 
 ---
 
@@ -95,8 +95,8 @@ title: Arxiv论文总结报告
 
 #### [Gapless behavior in a two-leg spin ladder with bond randomness](http://arxiv.org/abs/2504.14970v1)
 - **作者:** Yu Tominaga, Itsuki Shimamura, Takanori Kida, Masayuki Hagiwara, Koji Araki, Yuko Hosokoshi, Yoshiki Iwasaki, Hironori Yamaguchi
-- **研究目的:** 研究具有键随机性的双腿自旋梯形化合物 $\text{[Cu}_2\text{(AcO)}_4(\textit{p}\text{-Py-V-}\textit{p}\text{-F})_2\text{]}\cdot4\text{CHCl}_3$ 的无能隙行为。
-- **主要发现:** 实验观察到的居里尾、无能隙磁化增加以及低温比热 $\propto 1/|\text{ln}T|^3$ 行为，证实了在非受挫系统中由于键随机性形成了随机单态（RS态）。
+- **研究目的:** 研究具有键随机性的双腿自旋梯形化合物 $\text{[Cu}\_2\text{(AcO)}\_4(\textit{p}\text{-Py-V-}\textit{p}\text{-F})\_2\text{]}\cdot4\text{CHCl}\_3$ 的无能隙行为。
+- **主要发现:** 实验观察到的居里尾、无能隙磁化增加以及低温比热 $\propto 1/\|\text{ln}T\|^3$ 行为，证实了在非受挫系统中由于键随机性形成了随机单态（RS态）。
 
 ---
 
@@ -138,14 +138,14 @@ title: Arxiv论文总结报告
 #### [Converting $PT$-Symmetric Topological Classes by Floquet Engineering](http://arxiv.org/abs/2504.14846v1)
 - **作者:** Ming-Jian Gao, Jun-Hong An
 - **研究目的:** 提出通过 Floquet 工程实现 $PT$ 对称拓扑类之间的转换。
-- **主要发现:** 周期性驱动导致的 $\mathbb{Z}_2$ 规范对称性破缺可以实现 $(PT)^2 = \pm 1$ 拓扑类之间的相互转换，从而在不改变对称性的情况下实现奇异的拓扑相。
+- **主要发现:** 周期性驱动导致的 $\mathbb{Z}\_2$ 规范对称性破缺可以实现 $(PT)^2 = \pm 1$ 拓扑类之间的相互转换，从而在不改变对称性的情况下实现奇异的拓扑相。
 
 ---
 
-#### [Band-spin-valley coupled exciton physics in antiferromagnetic MnPS$_3$](http://arxiv.org/abs/2504.14821v1)
+#### [Band-spin-valley coupled exciton physics in antiferromagnetic MnPS$\_3$](http://arxiv.org/abs/2504.14821v1)
 - **作者:** Dan Wang, Haowei Chen, Yu Pang, Xiaolong Zou, Wenhui Duan
-- **研究目的:** 利用全自旋 GW 加 Bethe-Salpeter 方程方法，揭示反铁磁 $\text{MnPS}_3$ 中的能带-自旋-谷耦合激子物理。
-- **主要发现:** 发现了 $\text{MnPS}_3$ 中由于能带反转、自旋-谷耦合和磁有序的相互作用，存在丰富的激子物理，包括亮激子交换劈裂增强、谷间精细结构差异以及磁有序转变对激子跃迁的显著影响。
+- **研究目的:** 利用全自旋 GW 加 Bethe-Salpeter 方程方法，揭示反铁磁 $\text{MnPS}\_3$ 中的能带-自旋-谷耦合激子物理。
+- **主要发现:** 发现了 $\text{MnPS}\_3$ 中由于能带反转、自旋-谷耦合和磁有序的相互作用，存在丰富的激子物理，包括亮激子交换劈裂增强、谷间精细结构差异以及磁有序转变对激子跃迁的显著影响。
 
 ---
 
@@ -166,14 +166,14 @@ title: Arxiv论文总结报告
 #### [Bulk nanocrystalline Al-Mg-Y alloys with amorphous grain boundary complexions display high strength and compressive plasticity](http://arxiv.org/abs/2504.14754v1)
 - **作者:** Tianjiao Lei, Esther Hessong, Brandon Fields, Raphael Pierre Thiraux, Daniel S. Gianola, Timothy J. Rupert
 - **研究目的:** 研究具有非晶晶界复合体的块体纳米晶 $\text{Al-Mg-Y}$ 合金的力学性能。
-- **主要发现:** 制备的块体纳米晶 $\text{Al-Mg-Y}$ 合金由于非晶晶界复合体和拉长 $\text{Al}_3\text{Y}$ 颗粒形成的蜂窝状结构，表现出超过 800 MPa 的高强度和显著的压缩塑性。
+- **主要发现:** 制备的块体纳米晶 $\text{Al-Mg-Y}$ 合金由于非晶晶界复合体和拉长 $\text{Al}\_3\text{Y}$ 颗粒形成的蜂窝状结构，表现出超过 800 MPa 的高强度和显著的压缩塑性。
 
 ---
 
 #### [Long-lived Zone-boundary Magnons in an Antiferromagnet](http://arxiv.org/abs/2504.14742v1)
 - **作者:** Jeongheon Choe, David Lujan, Gaihua Ye, Cynthia Nnokwe, Bowen Ma, Jiaming He, Frank Y. Gao, T. Nathan Nunley, Aritz Leonardo, Mikel Arruabarrena, Andres Ayuela, Jianshi Zhou, Martin Rodriguez-Vega, Gregory A. Fiete, Rui He, Xiaoqin Li
-- **研究目的:** 在反铁磁绝缘体 $\text{CoTiO}_3$ 中寻找并研究长寿命的布里渊区边界磁振子。
-- **主要发现:** 在蜂窝状反铁磁绝缘体 $\text{CoTiO}_3$ 中发现了长寿命的短波长布里渊区边界磁振子，其寿命长于区中心磁振子，这一异常现象与反铁磁有序、交换各向异性、有限磁振子能隙和能带色散有关。
+- **研究目的:** 在反铁磁绝缘体 $\text{CoTiO}\_3$ 中寻找并研究长寿命的布里渊区边界磁振子。
+- **主要发现:** 在蜂窝状反铁磁绝缘体 $\text{CoTiO}\_3$ 中发现了长寿命的短波长布里渊区边界磁振子，其寿命长于区中心磁振子，这一异常现象与反铁磁有序、交换各向异性、有限磁振子能隙和能带色散有关。
 
 ---
 
@@ -192,7 +192,7 @@ title: Arxiv论文总结报告
 ---
 #### [Manipulation of anisotropic Zhang-Rice exciton in van der Waals antiferromagnets NiPS3-xSex by anion substitution](http://arxiv.org/abs/2504.14660v1)
 - **作者:** Deepu Kumar, Joydev Khatua, Nguyen The Hoang, Yumin Sim, Rajesh Kumar Ulaganathan, Raju Kalaivanan, Raman Sankar, Maeng-Je Seong, Kwang-Yong Choi
-- **研究目的:** 通过温度和偏振依赖的光致发光研究阴离子取代的NiPS$_{3-x}$Se$_x$中的Zhang-Rice (ZR)激子的性质和动力学。
+- **研究目的:** 通过温度和偏振依赖的光致发光研究阴离子取代的NiPS$\_{3-x}$Se$\_x$中的Zhang-Rice (ZR)激子的性质和动力学。
 - **主要发现:** 少量阴离子取代能有效破坏和调节ZR激子，表明p轨道的不均匀性是驱动其热猝灭的关键因素。
 
 ---
@@ -255,22 +255,22 @@ title: Arxiv论文总结报告
 
 #### [Real Space Visualization of Order-Disorder Transition in BaTiO3](http://arxiv.org/abs/2504.14357v1)
 - **作者:** Yang Zhang, Xiaoming Shi, Suk Hyun Sung, Cong Li, Houbing Huang, Pu Yu, Ismail El Baggari
-- **研究目的:** 利用原位扫描透射电子显微镜直接可视化BaTiO$_3$在铁电-顺电相变过程中的极性位移，以深入理解其有序-无序机制。
-- **主要发现:** 在顺电相中存在有限的极性Ti位移，表现为随机的极性纳米区域，相变源于这些$<111>$极性Ti位移在实空间中的关联，为BaTiO$_3$的有序-无序相变机制提供了原子尺度的见解。
+- **研究目的:** 利用原位扫描透射电子显微镜直接可视化BaTiO$\_3$在铁电-顺电相变过程中的极性位移，以深入理解其有序-无序机制。
+- **主要发现:** 在顺电相中存在有限的极性Ti位移，表现为随机的极性纳米区域，相变源于这些$<111>$极性Ti位移在实空间中的关联，为BaTiO$\_3$的有序-无序相变机制提供了原子尺度的见解。
 
 ---
 
 #### [Mechanical properties of B12-based orthorhombic metal carboborides. A first principle study](http://arxiv.org/abs/2504.14355v1)
 - **作者:** Oleksiy Bystrenko, Tianxing Sun, Zhaohua Luo, Jingxian Zhang, Yusen Duan, Kaiqing Zhang, Hu Ruan, Wenyu Tang, Bohdan Ilkiv, Svitlana Petrovska, Tetiana Bystrenko
-- **研究目的:** 基于第一性原理DFT方法，研究B$_{12}$基正交金属碳硼化物MeC$_2$B$_{12}$ (Me=Mg, Ca, Sr, Sc, Y)的结构和力学性能。
-- **主要发现:** 预测了一系列具有Imma对称性的新型稳定MeC$_2$B$_{12}$相，其力学性能(弹性模量和维氏硬度)显著优于参考化合物AlMgB$_{14}$，使其有望成为新型超硬材料。
+- **研究目的:** 基于第一性原理DFT方法，研究B$\_{12}$基正交金属碳硼化物MeC$\_2$B$\_{12}$ (Me=Mg, Ca, Sr, Sc, Y)的结构和力学性能。
+- **主要发现:** 预测了一系列具有Imma对称性的新型稳定MeC$\_2$B$\_{12}$相，其力学性能(弹性模量和维氏硬度)显著优于参考化合物AlMgB$\_{14}$，使其有望成为新型超硬材料。
 
 ---
 
-#### [General trends of electronic structures, superconducting pairing, and magnetic correlations in the Ruddlesden-Popper nickelate $m$-layered superconductors La$_{m+1}$Ni$_{m}$O$_{3m+1}$](http://arxiv.org/abs/2504.14327v1)
+#### [General trends of electronic structures, superconducting pairing, and magnetic correlations in the Ruddlesden-Popper nickelate $m$-layered superconductors La$\_{m+1}$Ni$\_{m}$O$\_{3m+1}$](http://arxiv.org/abs/2504.14327v1)
 - **作者:** Yang Zhang, Ling-Fang Lin, Adriana Moreo, Satoshi Okamoto, Thomas A. Maier, Elbio Dagotto
-- **研究目的:** 对Ruddlesden-Popper层状镍酸盐La$_{m+1}$Ni$_m$O$_{3m+1}$ ($m = 1$至6)在压力下的电子结构、超导配对和磁关联进行全面的理论分析。
-- **主要发现:** 这些镍酸盐表现出依赖于$m$的电子结构和主导超导配对态($s^\pm$-波或$d_{x^2-y^2}$-波)，$T_c$通常从$m=2$到$m=6$降低，并且具有复杂的面内和面外磁关联。
+- **研究目的:** 对Ruddlesden-Popper层状镍酸盐La$\_{m+1}$Ni$\_m$O$\_{3m+1}$ ($m = 1$至6)在压力下的电子结构、超导配对和磁关联进行全面的理论分析。
+- **主要发现:** 这些镍酸盐表现出依赖于$m$的电子结构和主导超导配对态($s^\pm$-波或$d\_{x^2-y^2}$-波)，$T\_c$通常从$m=2$到$m=6$降低，并且具有复杂的面内和面外磁关联。
 
 ---
 
@@ -305,7 +305,7 @@ title: Arxiv论文总结报告
 #### [Retrieval of fundamental material parameters of monolayer transition metal dichalcogenides from experimental exciton energies: An analytical approach](http://arxiv.org/abs/2504.14187v1)
 - **作者:** Duy-Nhat Ly, Dai-Nam Le, Dang-Khoa D. Le, Van-Hoang Le
 - **研究目的:** 提出一种直接的分析方法，用于从实验激子能量中提取单层过渡金属二硫化物(TMDCs)的基本材料参数（屏蔽长度、带隙能、激子约化质量和周围介电常数）。
-- **主要发现:** 开发了一种分析方法，可以直接从$s$-态激子能量计算屏蔽长度$r_0$和带隙能$E_g$，并通过将计算的磁激子能量与实验数据拟合来确定激子约化质量$\mu$和周围介电常数$\kappa$。
+- **主要发现:** 开发了一种分析方法，可以直接从$s$-态激子能量计算屏蔽长度$r\_0$和带隙能$E\_g$，并通过将计算的磁激子能量与实验数据拟合来确定激子约化质量$\mu$和周围介电常数$\kappa$。
 
 ---
 
@@ -339,8 +339,8 @@ title: Arxiv论文总结报告
 
 #### [Interfacial Effects and Negative Capacitance State in P(VDF-TrFE) Films with BaTiO3 Nanoparticles](http://arxiv.org/abs/2504.14090v1)
 - **作者:** Oleksii V. Bereznykov, Oleksandr S. Pylypchuk, Victor I. Styopkin, Serhii E. Ivanchenko, Denis O. Stetsenko, Eugene A. Eliseev, Zdravko Kutnjak, Vladimir N. Poroshin, Anna N. Morozovska, Nicholas V. Morozovsky
-- **研究目的:** 分析P(VDF-TrFE)薄膜与BaTiO$_3$纳米粒子复合材料的有效介电常数的温度和频率依赖性，并研究界面效应和负电容态。
-- **主要发现:** 复合薄膜表现出受界面屏蔽电荷和偶极-偶极相互作用影响的复杂温度和频率依赖介电行为，并且预测在高BaTiO$_3$含量的薄膜中由于界面效应存在负电容态。
+- **研究目的:** 分析P(VDF-TrFE)薄膜与BaTiO$\_3$纳米粒子复合材料的有效介电常数的温度和频率依赖性，并研究界面效应和负电容态。
+- **主要发现:** 复合薄膜表现出受界面屏蔽电荷和偶极-偶极相互作用影响的复杂温度和频率依赖介电行为，并且预测在高BaTiO$\_3$含量的薄膜中由于界面效应存在负电容态。
 
 ---
 
@@ -354,7 +354,7 @@ title: Arxiv论文总结报告
 #### [Modulation doping and control the carrier concentration in 2-dimensional transition metal dichalcogenides](http://arxiv.org/abs/2504.14031v1)
 - **作者:** Nikhil Sivadas, Yongwoo Shin
 - **研究目的:** 识别用于二维过渡金属二硫化物(TMDs)调制掺杂的候选元素，并利用第一性原理计算证明载流子浓度控制。
-- **主要发现:** 提出了一系列用于TMDs的p型和n型调制掺杂的候选元素，并且第一性原理计算表明，将Ni掺杂到HfO$_2$中可以有效地p掺杂单层WSe$_2$，其空穴浓度可调至适用于晶体管应用的水平。
+- **主要发现:** 提出了一系列用于TMDs的p型和n型调制掺杂的候选元素，并且第一性原理计算表明，将Ni掺杂到HfO$\_2$中可以有效地p掺杂单层WSe$\_2$，其空穴浓度可调至适用于晶体管应用的水平。
 
 ---
 
