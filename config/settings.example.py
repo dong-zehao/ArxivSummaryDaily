@@ -32,7 +32,7 @@ QUERY = ""     # 搜索CATEGORIES中的所有文献
 # 语言模型API配置
 LLM_CONFIG = {
     'api_key': "YOUR_API_HERE",                                             # 在这里输入API密钥
-    'model': 'gemini-2.5-flash',                                            # 模型名称
+    'model': 'gemini-flash-latest',                                         # 模型名称
     # 'model': 'gemini-2.0-flash',
     'api_url': "https://generativelanguage.googleapis.com/v1beta/models",   # API基础URL
     'temperature': 0.5,                                                     # 温度参数
