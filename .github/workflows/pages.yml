@@ -48,13 +48,20 @@ jobs:
           sed -i 's/"YOUR_API_HERE"/os.getenv("LLM_API_KEY")/' ./config/settings.py
       
       # Cache the built data
-      - name: Cache build
-        uses: actions/cache@v4
+      #- name: Cache build
+      #  uses: actions/cache@v4
+      #  with:
+      #    path: ./data
+      #    key: ${{ runner.os }}-dist-${{ github.run_id }}
+      #    restore-keys: |
+      #      ${{ runner.os }}-dist-
+      - name: Restore data from gh-pages branch
+        uses: actions/checkout@v4
         with:
+          ref: gh-pages
           path: ./data
-          key: ${{ runner.os }}-dist-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os }}-dist-
+        # skip this process if gh-pages does not exist at the first run
+        continue-on-error: true
 
       - name: Build the data
         env:
