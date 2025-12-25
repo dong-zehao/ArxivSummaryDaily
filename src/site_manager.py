@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import time
 import shutil
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 from pathlib import Path
 import os
@@ -51,28 +50,35 @@ title: {title}
         """
         print(f"清理超过{days}天的旧markdown文件...")
         
-        current_time = time.time()
-        seconds_in_day = 86400  # 24 * 60 * 60
-        max_age = days * seconds_in_day
+        current_time = datetime.now()
+        max_age = timedelta(days=days)
         
         # 查找所有摘要文件
         summary_files = list(self.data_dir.glob("summary_*.md"))
         removed_count = 0
         
         for file_path in summary_files:
-            # 获取文件的修改时间
-            file_time = file_path.stat().st_mtime
-            age = current_time - file_time
-            
+            # 优先使用文件名中的时间戳，避免检出时修改时间导致的误判
+            file_datetime = self._get_summary_datetime(file_path)
+            age = current_time - file_datetime
+
             # 如果文件超过指定天数，删除它
-            if age > max_age:
-                file_date = datetime.fromtimestamp(file_time).strftime('%Y-%m-%d %H:%M:%S')
+            if age >= max_age:
+                file_date = file_datetime.strftime('%Y-%m-%d %H:%M:%S')
                 print(f"删除旧文件: {file_path} ({file_date})")
                 file_path.unlink()
                 removed_count += 1
         
         print(f"清理完成，共删除{removed_count}个文件")
         return removed_count
+
+    def _get_summary_datetime(self, file_path):
+        """从文件名中解析摘要时间戳，失败则回退到文件修改时间"""
+        match = re.search(r'summary_(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})', file_path.name)
+        if match:
+            year, month, day, hour, minute, second = map(int, match.groups())
+            return datetime(year, month, day, hour, minute, second)
+        return datetime.fromtimestamp(file_path.stat().st_mtime)
     
     def get_sorted_summary_files(self):
         """获取按时间排序的摘要文件列表（最新在前）
