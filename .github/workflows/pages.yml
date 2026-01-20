@@ -1,8 +1,8 @@
 name: pages
 on:
   schedule:
-    # Runs at 11:30 PM Beijing Time (UTC+8) from Monday to Friday
-    - cron: '30 3 * * 1-5'
+    # Runs at 11:00 PM Beijing Time (UTC+8) from Monday to Friday
+    - cron: '0 3 * * 1-5'
   # Or you can trigger it manually
   workflow_dispatch:
 
