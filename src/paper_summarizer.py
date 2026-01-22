@@ -101,7 +101,7 @@ class ModelClient:
 class PaperSummarizer:
     def __init__(self, api_key: str, model: Optional[str] = None):
         self.client = ModelClient(api_key, model)
-        self.max_papers_per_batch = 25
+        self.max_papers_per_batch = 50
 
     def _generate_batch_summaries(self, papers: List[Dict[str, Any]], start_index: int) -> str:
         """为一批论文生成总结"""
