@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 import os
 import subprocess
+import json
 
 class SiteManager:
     """ArXiv摘要网站管理器，处理文件清理、索引和归档页面生成"""
@@ -153,9 +154,11 @@ title: {title}
             
             # 添加归档链接
             archive_link = f"[查看所有摘要归档](archive.md) | 更新日期: {today}\n\n"
+            archive_data = self._build_archive_data(sorted_files)
+            archive_payload = f'<script type="application/json" id="summary-archive-data">{archive_data}</script>\n\n'
             
             # 生成完整内容
-            full_content = self.DEFAULT_FRONT_MATTER.format(title=title) + archive_link + content
+            full_content = self.DEFAULT_FRONT_MATTER.format(title=title) + archive_link + archive_payload + content
             
             # 写入文件
             with open(index_path, 'w', encoding='utf-8') as f:
@@ -190,7 +193,9 @@ title: {title}
         
         # 准备内容
         header = "[返回首页](index.md)\n\n# ArXiv 摘要归档\n\n以下是所有可用的ArXiv摘要文件，按日期排序（最新在前）：\n\n"
-        content = self.DEFAULT_FRONT_MATTER.format(title="ArXiv Summary 归档") + header
+        archive_data = self._build_archive_data(sorted_files)
+        archive_payload = f'<script type="application/json" id="summary-archive-data">{archive_data}</script>\n\n'
+        content = self.DEFAULT_FRONT_MATTER.format(title="ArXiv Summary 归档") + header + archive_payload
         
         # 处理每个文件，同时确保他们都有前置元数据
         for file_path in sorted_files:
@@ -213,6 +218,18 @@ title: {title}
             
         print("归档页面创建成功")
         return True
+
+    def _build_archive_data(self, sorted_files):
+        """构建前端筛选用的归档JSON数据"""
+        archive_entries = []
+        for file_path in sorted_files:
+            file_datetime = self._get_summary_datetime(file_path)
+            archive_entries.append({
+                "filename": file_path.name,
+                "date": file_datetime.strftime('%Y-%m-%d'),
+                "timestamp": file_datetime.isoformat()
+            })
+        return json.dumps(archive_entries, ensure_ascii=False)
     
     def ensure_file_has_front_matter(self, file_path, title):
         """确保文件有Jekyll前置元数据，没有则添加
