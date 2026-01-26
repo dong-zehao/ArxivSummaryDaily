@@ -321,7 +321,7 @@ arXiv链接：{paper['pdf_url']}
             categories_label = ", ".join(categories) if categories else "未分类"
             categories_attr = html.escape(",".join(categories))
             published_date = paper.get('published', '')[:10]
-            block = f"""<section class="paper-summary" data-categories="{categories_attr}" data-published="{published_date}">
+            block = f"""<section class="paper-summary" data-categories="{categories_attr}" data-published="{published_date}" markdown="1">
 <div class="paper-summary-meta">
   <span><strong>分类:</strong> {categories_label}</span>
   <span><strong>发布日期:</strong> {published_date}</span>
