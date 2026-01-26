@@ -4,7 +4,7 @@ ArXiv API 配置文件
 
 # arXiv API 搜索配置
 SEARCH_CONFIG = {
-    'max_total_results': 20,         # 总共要获取的最大论文数量
+    'max_total_results': 200,         # 总共要获取的最大论文数量
     'sort_by': 'SubmittedDate',       # 排序方式: Relevance, LastUpdatedDate, SubmittedDate
     'sort_order': 'Descending',       # 排序顺序: Ascending, Descending
     'include_cross_listed': True,     # 是否包含跨类别的论文
