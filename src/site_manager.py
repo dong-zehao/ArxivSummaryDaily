@@ -120,7 +120,7 @@ title: {title}
         return title, content
     
     def copy_latest_to_index(self, sorted_files=None):
-        """复制最新的md文件到index.md
+        """将所有摘要组合到index.md
         
         Args:
             sorted_files: 可选的已排序文件列表
@@ -135,22 +135,8 @@ title: {title}
         today = datetime.now().strftime('%Y-%m-%d')
         
         if sorted_files:
-            latest_file = sorted_files[0]
-            with open(latest_file, 'r', encoding='utf-8') as f:
-                content = f.read()
-        
-            # 转义markdown字符
-            escaped_content = self._escape_markdown_chars(content)
-            
-            # 写回文件
-            with open(latest_file, 'w', encoding='utf-8') as f:
-                f.write(escaped_content)
-            
-            print(f"找到最新文件: {latest_file}")
-            print(f"更新index.md...")
-            
-            # 提取内容和标题
-            title, content = self.extract_content(latest_file)
+            print(f"找到 {len(sorted_files)} 个摘要文件，正在组合到index.md...")
+            combined_content = self._build_combined_summary_content(sorted_files)
             
             # 添加归档链接
             archive_link = f"[查看所有摘要归档](archive.md) | 更新日期: {today}\n\n"
@@ -158,7 +144,12 @@ title: {title}
             archive_payload = f'<script type="application/json" id="summary-archive-data">{archive_data}</script>\n\n'
             
             # 生成完整内容
-            full_content = self.DEFAULT_FRONT_MATTER.format(title=title) + archive_link + archive_payload + content
+            full_content = (
+                self.DEFAULT_FRONT_MATTER.format(title="ArXiv Summary Daily")
+                + archive_link
+                + archive_payload
+                + combined_content
+            )
             
             # 写入文件
             with open(index_path, 'w', encoding='utf-8') as f:
@@ -175,6 +166,31 @@ title: {title}
                 f.write(full_content)
         
         return True
+
+    def _build_combined_summary_content(self, sorted_files):
+        """组合所有摘要文件的内容用于首页展示"""
+        combined_sections = ["# ArXiv Summary Daily\n"]
+
+        for file_path in sorted_files:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            escaped_content = self._escape_markdown_chars(content)
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(escaped_content)
+
+            title, summary_content = self.extract_content(file_path)
+            summary_content = self._strip_primary_heading(summary_content)
+            file_date = self._get_summary_datetime(file_path).strftime('%Y-%m-%d')
+            summary_header = f"## {file_date} 摘要\n\n[查看该日摘要文件]({file_path.name})\n\n"
+            combined_sections.append(summary_header + summary_content + "\n\n---\n\n")
+
+        return "".join(combined_sections).rstrip() + "\n"
+
+    def _strip_primary_heading(self, content):
+        """去除摘要内容中的顶层标题，避免首页重复显示"""
+        cleaned = content.lstrip()
+        return re.sub(r'^# .*\n+', '', cleaned, count=1)
     
     def create_archive_page(self, sorted_files=None):
         """创建归档页面，允许访问所有摘要
