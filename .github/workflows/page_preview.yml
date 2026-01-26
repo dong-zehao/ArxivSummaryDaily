@@ -79,7 +79,7 @@ jobs:
       - name: Deploy to Preview GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.PREVIEW_REPO_TOKEN }}
+          personal_token: ${{ secrets.PREVIEW_REPO_TOKEN }}
           publish_dir: ./data
           external_repository: dong-zehao/ArxivSummaryDaily-preview # push to an external repo for dev
           publish_branch: gh-pages
