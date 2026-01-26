@@ -1,4 +1,4 @@
-name: pages
+name: page_preview
 on:
   schedule:
     # Runs at 11:00 PM Beijing Time (UTC+8) from Monday to Friday
