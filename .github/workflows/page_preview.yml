@@ -1,0 +1,86 @@
+name: pages
+on:
+  schedule:
+    # Runs at 11:00 PM Beijing Time (UTC+8) from Monday to Friday
+    - cron: '0 3 * * 1-5'
+  # Or you can trigger it manually
+  workflow_dispatch:
+
+jobs:
+  build:
+    permissions:
+      contents: write
+      pages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Get pip cache dir
+        id: pip-cache
+        run: |
+          echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+          
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pip-cache.outputs.dir }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install package
+        run: pip install -e .
+
+      - name: Make Configuration
+        run: |
+          cp ./config/settings.example.py ./config/settings.py
+          sed -i '1i import os' ./config/settings.py
+          sed -i 's/"YOUR_API_HERE"/os.getenv("LLM_API_KEY")/' ./config/settings.py
+      
+      # Cache the built data
+      #- name: Cache build
+      #  uses: actions/cache@v4
+      #  with:
+      #    path: ./data
+      #    key: ${{ runner.os }}-dist-${{ github.run_id }}
+      #    restore-keys: |
+      #      ${{ runner.os }}-dist-
+      - name: Restore data from gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          repository: dong-zehao/ArxivSummaryDaily-preview
+          ref: gh-pages
+          token: ${{ secrets.PREVIEW_REPO_TOKEN }}
+          path: ./data
+        # skip this process if gh-pages does not exist at the first run
+        continue-on-error: true
+
+      - name: Build the data
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: arxivsummary
+      
+      # Use site_manager to manage the site
+      - name: Generate site
+        run: arxivsite --data-dir ./data --github-dir ./.github --days 30
+      
+      - name: Deploy to Preview GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PREVIEW_REPO_TOKEN }}
+          publish_dir: ./data
+          external_repository: dong-zehao/ArxivSummaryDaily-preview # push to an external repo for dev
+          publish_branch: gh-pages
+          enable_jekyll: true
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
