@@ -3,13 +3,15 @@
 """
 import os
 import json
+import re
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 import requests
 import time
 from datetime import datetime
 import pytz
-from config.settings import LLM_CONFIG
+import html
+from config.settings import LLM_CONFIG, CATEGORIES
 
 class ModelClient:
     """语言模型API客户端"""
@@ -276,7 +278,9 @@ arXiv链接：{paper['pdf_url']}
     def _generate_markdown(self, papers: List[Dict[str, Any]], summaries: str) -> str:
         """生成markdown格式的报告"""
         beijing_time = datetime.now(pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
-        
+        summary_sections = self._split_summary_sections(summaries)
+        formatted_summaries = self._format_summary_sections(papers, summary_sections)
+
         markdown_content = f"""# Arxiv论文总结报告
 
 ## 基本信息
@@ -288,7 +292,7 @@ arXiv链接：{paper['pdf_url']}
 
 ## 论文总结
 
-{summaries}
+{formatted_summaries}
 
 ---
 
@@ -298,3 +302,34 @@ arXiv链接：{paper['pdf_url']}
 - 如有错误或遗漏请以原文为准
 """
         return markdown_content
+
+    def _split_summary_sections(self, summaries: str) -> List[str]:
+        """将模型输出的摘要按分隔符拆分为单篇条目"""
+        if not summaries:
+            return []
+        cleaned = summaries.strip()
+        cleaned = re.sub(r'^\s*---\s*', '', cleaned)
+        sections = re.split(r'\n---\s*\n', cleaned)
+        return [section.strip() for section in sections if section.strip()]
+
+    def _format_summary_sections(self, papers: List[Dict[str, Any]], sections: List[str]) -> str:
+        """将摘要片段与论文元数据拼接为可筛选的HTML块"""
+        formatted_blocks = []
+        allowed_categories = set(CATEGORIES)
+        for index, paper in enumerate(papers):
+            section = sections[index] if index < len(sections) else ""
+            categories = paper.get('categories') or []
+            filtered_categories = [cat for cat in categories if cat in allowed_categories]
+            categories_label = ", ".join(filtered_categories) if filtered_categories else "未分类"
+            categories_attr = html.escape(",".join(filtered_categories))
+            published_date = paper.get('published', '')[:10]
+            block = f"""<section class="paper-summary" data-categories="{categories_attr}" data-published="{published_date}" markdown="1">
+<div class="paper-summary-meta">
+  <span><strong>分类:</strong> {categories_label}</span>
+  <span><strong>发布日期:</strong> {published_date}</span>
+</div>
+
+{section}
+</section>"""
+            formatted_blocks.append(block)
+        return "\n\n".join(formatted_blocks)
