@@ -4,7 +4,7 @@ ArXiv API 配置文件
 
 # arXiv API 搜索配置
 SEARCH_CONFIG = {
-    'max_total_results': 200,         # 总共要获取的最大论文数量
+    'max_total_results': 20,         # 总共要获取的最大论文数量
     'sort_by': 'SubmittedDate',       # 排序方式: Relevance, LastUpdatedDate, SubmittedDate
     'sort_order': 'Descending',       # 排序顺序: Ascending, Descending
     'include_cross_listed': True,     # 是否包含跨类别的论文
@@ -32,7 +32,7 @@ QUERY = ""     # 搜索CATEGORIES中的所有文献
 # 语言模型API配置
 LLM_CONFIG = {
     'api_key': "YOUR_API_HERE",                                             # 在这里输入API密钥
-    'model': 'gemini-3-flash-preview',                                         # 模型名称
+    'model': 'gemini-2.5-flash',                                         # 模型名称
     # 'model': 'gemini-2.0-flash',
     'api_url': "https://generativelanguage.googleapis.com/v1beta/models",   # API基础URL
     'temperature': 0.5,                                                     # 温度参数
