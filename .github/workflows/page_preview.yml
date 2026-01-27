@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: codex/add-pagination-and-sorting-for-papers
+          ref: codex/add-pagination-and-sorting-for-papers-q6pjm4
 
       - name: Set up python
         uses: actions/setup-python@v4
