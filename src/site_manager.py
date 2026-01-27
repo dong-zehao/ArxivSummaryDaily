@@ -169,7 +169,7 @@ title: {title}
 
     def _build_combined_summary_content(self, sorted_files):
         """组合所有摘要文件的内容用于首页展示"""
-        combined_sections = ["# ArXiv Summary Daily\n"]
+        combined_sections = ["# ArXiv Summary Daily\n", '<div id="summary-list" markdown="1">\n']
 
         for file_path in sorted_files:
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -191,6 +191,7 @@ title: {title}
             )
             combined_sections.append(summary_wrapper)
 
+        combined_sections.append("</div>\n")
         return "".join(combined_sections).rstrip() + "\n"
 
     def _strip_primary_heading(self, content):
