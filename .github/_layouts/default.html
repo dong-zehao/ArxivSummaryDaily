@@ -107,8 +107,11 @@
             <option value="14">14 天</option>
             <option value="30" selected>30 天</option>
             <option value="60">60 天</option>
+            <option value="custom">自定义</option>
             <option value="all">全部</option>
           </select>
+          <label for="archive-range-custom">自定义天数</label>
+          <input id="archive-range-custom" type="number" min="1" placeholder="例如 21" />
           <label for="archive-sort">排序</label>
           <select id="archive-sort">
             <option value="desc" selected>从新到旧</option>
@@ -120,7 +123,7 @@
           </select>
         </div>
         <div class="summary-controls-row">
-          <label>分类</label>
+          <label>分类(可多选)</label>
           <div id="category-filters" class="category-filters"></div>
         </div>
       </section>
@@ -139,6 +142,7 @@
       const categoryFilters = document.getElementById('category-filters');
       const archiveDataElement = document.getElementById('summary-archive-data');
       const archiveRange = document.getElementById('archive-range');
+      const archiveRangeCustom = document.getElementById('archive-range-custom');
       const archiveSort = document.getElementById('archive-sort');
       const archiveSelect = document.getElementById('archive-select');
 
@@ -234,13 +238,28 @@
         }, null);
       };
 
+      const getSelectedRangeDays = () => {
+        if (!archiveRange || archiveRange.value === 'all') {
+          return null;
+        }
+        if (archiveRange.value === 'custom') {
+          if (!archiveRangeCustom || !archiveRangeCustom.value) {
+            return null;
+          }
+          const customDays = Number(archiveRangeCustom.value);
+          return Number.isNaN(customDays) ? null : customDays;
+        }
+        const days = Number(archiveRange.value);
+        return Number.isNaN(days) ? null : days;
+      };
+
       const filterByRange = (entries) => {
         if (!archiveRange || archiveRange.value === 'all') {
           return [...entries];
         }
-        const days = Number(archiveRange.value);
+        const days = getSelectedRangeDays();
         const latestDate = getLatestDate(entries);
-        if (!latestDate || Number.isNaN(days)) {
+        if (!latestDate || !days) {
           return [...entries];
         }
         const cutoff = new Date(latestDate);
@@ -317,6 +336,13 @@
         }
         refreshArchiveSelect();
         archiveRange.addEventListener('change', refreshArchiveSelect);
+        if (archiveRangeCustom) {
+          archiveRangeCustom.addEventListener('input', () => {
+            if (archiveRange.value === 'custom') {
+              refreshArchiveSelect();
+            }
+          });
+        }
         archiveSort.addEventListener('change', () => {
           refreshArchiveSelect();
           sortSummarySections();
