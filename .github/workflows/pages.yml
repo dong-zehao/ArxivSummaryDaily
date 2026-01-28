@@ -70,7 +70,7 @@ jobs:
       
       # Use site_manager to manage the site
       - name: Generate site
-        run: arxivsite --data-dir ./data --github-dir ./.github --days 7
+        run: arxivsite --data-dir ./data --github-dir ./.github --days 30
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
