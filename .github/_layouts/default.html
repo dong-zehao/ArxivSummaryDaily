@@ -42,10 +42,14 @@
         margin-right: 6px;
       }
       .summary-controls select,
-      .summary-controls button {
+      .summary-controls button,
+      .summary-controls input {
         padding: 6px 10px;
         border-radius: 6px;
         border: 1px solid #c7d2d1;
+      }
+      #archive-range-custom {
+        width: 120px;
       }
       .category-filters {
         display: flex;
@@ -239,15 +243,12 @@
       };
 
       const getSelectedRangeDays = () => {
-        if (!archiveRange || archiveRange.value === 'all') {
-          return null;
-        }
-        if (archiveRange.value === 'custom') {
-          if (!archiveRangeCustom || !archiveRangeCustom.value) {
-            return null;
-          }
+        if (archiveRangeCustom && archiveRangeCustom.value) {
           const customDays = Number(archiveRangeCustom.value);
           return Number.isNaN(customDays) ? null : customDays;
+        }
+        if (!archiveRange || archiveRange.value === 'all') {
+          return null;
         }
         const days = Number(archiveRange.value);
         return Number.isNaN(days) ? null : days;
@@ -302,6 +303,27 @@
         sortedSections.forEach((section) => summaryContainer.appendChild(section));
       };
 
+      const applyDateRangeFilter = () => {
+        const daySections = Array.from(document.querySelectorAll('.summary-day'));
+        if (!daySections.length) {
+          return;
+        }
+        const latestDate = getLatestDate(archiveEntries);
+        const days = getSelectedRangeDays();
+        if (!latestDate || !days) {
+          daySections.forEach((section) => {
+            section.style.display = '';
+          });
+          return;
+        }
+        const cutoff = new Date(latestDate);
+        cutoff.setDate(cutoff.getDate() - days + 1);
+        daySections.forEach((section) => {
+          const sectionDate = new Date(section.dataset.summaryDate);
+          section.style.display = sectionDate >= cutoff ? '' : 'none';
+        });
+      };
+
       const resolveEntryUrl = (filename) => {
         if (!filename) {
           return '';
@@ -338,15 +360,15 @@
         archiveRange.addEventListener('change', refreshArchiveSelect);
         if (archiveRangeCustom) {
           archiveRangeCustom.addEventListener('input', () => {
-            if (archiveRange.value === 'custom') {
-              refreshArchiveSelect();
-            }
+            refreshArchiveSelect();
+            applyDateRangeFilter();
           });
         }
         archiveSort.addEventListener('change', () => {
           refreshArchiveSelect();
           sortSummarySections();
         });
+        archiveRange.addEventListener('change', applyDateRangeFilter);
         archiveSelect.addEventListener('change', () => {
           if (archiveSelect.value) {
             window.location.href = resolveEntryUrl(archiveSelect.value);
@@ -360,6 +382,7 @@
       buildCategoryFilters();
       initArchiveControls();
       sortSummarySections();
+      applyDateRangeFilter();
     </script>
   </body>
 </html>
