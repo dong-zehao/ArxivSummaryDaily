@@ -168,26 +168,11 @@ arXiv链接：{paper['entry_id']}
 请根据以下论文信息生成总结：
 {batch_prompt}"""
 
-        try:
-            response = self.client.chat_completion([{
-                "role": "user",
-                "content": final_prompt
-            }])
-            return response["choices"][0]["message"]["content"].strip()
-        except Exception as e:
-            # 如果批处理失败，生成错误信息
-            error_summaries = []
-            for i, paper in enumerate(papers, start=start_index):
-                error_summaries.append(f"""
-论文 {i}：
-标题：{paper['title']}
-作者：{', '.join(paper['authors'])}
-发布日期：{paper['published'][:10]}
-arXiv链接：{paper['pdf_url']}
-研究目的：[生成失败: {str(e)}]
-主要发现：[生成失败: {str(e)}]
----""")
-            return "\n".join(error_summaries)
+        response = self.client.chat_completion([{
+            "role": "user",
+            "content": final_prompt
+        }])
+        return response["choices"][0]["message"]["content"].strip()
 
     def _process_batch(self, papers: List[Dict[str, Any]], start_index: int) -> str:
         """处理一批论文"""
@@ -224,56 +209,26 @@ arXiv链接：{paper['pdf_url']}
         Returns:
             bool: 摘要生成是否真正成功。如果生成的摘要包含错误信息则返回False
         """
-        api_success = True  # 标记API调用是否成功
-        
         try:
             # 生成总结内容
             print(f"开始生成论文总结，共 {len(papers)} 篇...")
             summaries = self._generate_batch_summary(papers)
-            
-            # 检查生成的摘要是否包含错误信息
-            if "[生成失败:" in summaries:
-                api_success = False
-                print("警告: 摘要生成过程中出现错误，结果可能不完整")
-            
+
             # 转换为markdown格式
             markdown_content = self._generate_markdown(papers, summaries)
             
             # 保存为markdown文件
             output_md = output_file.replace('.pdf', '.md')
+            Path(output_md).parent.mkdir(parents=True, exist_ok=True)
             with open(output_md, 'w', encoding='utf-8') as f:
                 f.write(markdown_content)
             print(f"Markdown文件已保存：{output_md}")
             
-            return api_success
+            return True
             
         except Exception as e:
-            # 如果生成总结失败，保存基本信息为markdown格式
-            beijing_time = datetime.now(pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
-            error_content = f"""# Arxiv论文总结报告
-
-生成时间：{beijing_time}
-
-**生成总结时发生错误，以下是论文基本信息：**
-
-"""
-            for i, paper in enumerate(papers, 1):
-                error_content += f"""
-## 论文 {i}：
-- 标题：{paper['title']}
-- 作者：{', '.join(paper['authors'])}
-- 发布日期：{paper['published'][:10]}
-- arXiv链接：{paper['pdf_url']}
-
-"""
-            
-            # 保存错误信息为markdown文件
-            error_md = output_file.replace('.pdf', '_error.md')
-            with open(error_md, 'w', encoding='utf-8') as f:
-                f.write(error_content)
-            print(f"发生错误，已保存基本信息到：{error_md}")
-            
-            return False  # 发生异常，摘要生成肯定失败
+            print(f"生成摘要时发生错误: {e}")
+            raise
 
     def _generate_markdown(self, papers: List[Dict[str, Any]], summaries: str) -> str:
         """生成markdown格式的报告"""

@@ -170,14 +170,14 @@ class ArxivClient:
                     all_results.append(metadata)
                     
                 except Exception as e:
-                    print(f"处理单篇文章时出错: {e}")
-                    continue
+                    raise RuntimeError(f"处理单篇文章时出错: {e}") from e
                 
         except Exception as e:
             print(f"搜索过程出错: {e}")
             print(f"错误类型: {type(e)}")
             import traceback
             print(f"错误堆栈: {traceback.format_exc()}")
+            raise
 
         if not all_results:
             print("未找到新的论文")
